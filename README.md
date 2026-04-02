@@ -1,2 +1,3 @@
 # cs32-finalproject
 CS 32 Final Project Designer Game with Sylvia, Lena, and Hiranmayi
+This is a Geoguesser/Wordle, but for designers. They could be interior designers, UI/UX designers, fashion designers, color theorists, etc. Given a random color, a user will be able to input different hex codes to guess the color they see. We also are thinking of implementing a similar situation given a specific texture, pattern, material, or brand, the user guesses the name of that texture, pattern, etc. These variations would act as a levels in the game to finally train the use to know their design components through a fun Wordle/game format.
