@@ -1,6 +1,6 @@
 # cs32-finalproject
 CS 32 Final Project Designer Game with Sylvia, Lena, and Hiranmayi
-<<<<<<< HEAD
+
 
 We are creating a color guesser game. There are two levels, one where the player must guess the six digit hex code for the color, and one where they guess the RGB values!
 
@@ -22,7 +22,3 @@ Changes:
 2. Have the same code run on both the client and the server in order to facilitate two people playing against each other.
 3. When one person finishes quicker than the other, a message is received on the other side, terminating the connection.
 4. This indicates which player finished guessing the fastest and therefore is the winner.
-=======
-This is a Geoguesser/Wordle, but for designers. They could be interior designers, UI/UX designers, fashion designers, color theorists, etc. Given a random color, a user will be able to input different hex codes to guess the color they see. We also are thinking of implementing a similar situation given a specific texture, pattern, material, or brand, the user guesses the name of that texture, pattern, etc. These variations would act as a levels in the game to finally train the use to know their design components through a fun Wordle/game format.
-
->>>>>>> 5d1a661 (Fri, Apr 10, 2026, 10:12 PM -04:00)
