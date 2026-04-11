@@ -1,3 +1,23 @@
 # cs32-finalproject
 CS 32 Final Project Designer Game with Sylvia, Lena, and Hiranmayi
-This is a Geoguesser/Wordle, but for designers. They could be interior designers, UI/UX designers, fashion designers, color theorists, etc. Given a random color, a user will be able to input different hex codes to guess the color they see. We also are thinking of implementing a similar situation given a specific texture, pattern, material, or brand, the user guesses the name of that texture, pattern, etc. These variations would act as a levels in the game to finally train the use to know their design components through a fun Wordle/game format.
+
+We are creating a color guesser game. There are two levels, one where the player must guess the six digit hex code for the color, and one where they guess the RGB values!
+
+Step 0: Ask the user whether they want to play with against the computer or against a friend, and how many levels they want to try. 
+
+Playing against the computer!
+Step 1: Using the Hued Python Library, generate a random color. 
+  Link: https://github.com/Infinitode/Hued
+Step 2: Using the Python Image Library, create and save an image to the files to the library.
+Step 3: Ask the user to check the files to open the picture of the color.
+Step 4: Then, using the smart client-dumb server format we made in the Roshambo PSET, ask the user to guess the color.
+Step 5: Use a module that mimics Wordle to guess the six characters of the hex code game in six tries.
+Step 6: For the next level, ask the user to guess the levels of red, green, and blue, like the number guesser game in class.
+
+Playing against a friend!
+Complete all steps as above, implementing the same format as the Roshambo PSET
+Changes:
+1. Generate the color via computer
+2. Have the same code run on both the client and the server in order to facilitate two people playing against each other.
+3. When one person finishes quicker than the other, a message is received on the other side, terminating the connection.
+4. This indicates which player finished guessing the fastest and therefore is the winner.
