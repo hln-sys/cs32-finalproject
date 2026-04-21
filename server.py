@@ -8,6 +8,7 @@ so that they view it and make their guess.
 # Import the library that contains the colors and their hex values
 import HUED
 
+
 # Create a connection
 from socket32 import create_new_socket
 
