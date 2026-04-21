@@ -21,7 +21,7 @@ def main():
         # Bind socket to address and publish contact info
         s.bind(HOST, PORT)
         s.listen()
-        print("HEXGAME server started. Listening on", (HOST, PORT))
+        print("HEXCODLE server started. Listening on", (HOST, PORT))
 
          # Answer incoming connection
         conn2client, addr = s.accept()
@@ -42,4 +42,9 @@ def main():
                 # send the image to the client so they can open it
                 else:
                     conn2client.sendall ('the image')
+            print('Disconnected')
+
+
+if __name__ == '__main__':
+    main()
 
