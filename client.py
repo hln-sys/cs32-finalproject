@@ -21,50 +21,50 @@ def main():
 
     print('## Welcome to the HEXCODLE ! ##')
 
+    print("Game Instructions:\n1. Before beginning the game, Run 'pip install hued' on your terminal to install the hued library needed for the game.\n2. To make the guess once the game starts, you will be asked to check for an image in your files. The name of the file is 'out.png' which will be created by the computer. Open it to see the image of the color whose hex code you have to guess, excluding the hashtag (#). This image changes everytime you play a new game.\n3. Each guess must be a valid 6-character hex code and you have six tries. When you make a guess you will be told how close you are to the true hex code by the colors of the character: \n   - A \033[32mgreen\033[0m character indicates that the character is in the hex code and in the correct spot \n   - A \033[33myellow\033[0m character indicates that the character is in the hex code but in the wrong spot \n   - A black character indicates that the character is not in the hexcode in any spot")
+
+
+
     #create socket and connect
     with create_new_socket() as s:
         s.connect(HOST, PORT)
 
-
-# Grab the server choice:
-
-secret_choice = s.recv()
-
-
-
-outcome = ""
-correct = 0
-tries = 0
-
-# Check choice
-while tries < 6:
-    # Grab player guess and compare with secret
-    
-    while True:
-        player_guess = input('Please input your hex code guess: ')
-    
-        if len(client_guess) == 6:
-            break
+        # Grab the server choice:
         
-        print('Your hex code guess must have 6 characters. Try again...')
+        secret_choice = s.recv()
         
-    for i in range(len(player_guess)):
-        # match - green
-        if player_guess[i] == secret_choice[i]:
-            outcome += f"\033[32m{player_guess[i]}\033[0m" 
-            correct += 1
-        elif player_guess[i] in secret_choice:
-            outcome += f"\033[33m{player_guess[i]}\033[0m"
-        else:
-            outcome += f"{player_guess[i]}"
-    print(outcome)
-    tries += 1
-    if correct == 6:
-        print(f"You got the correct hex code in {tries}!")
-        break
-
-if tries == 6:
-    print(f"You did not get the correct hex code in 6 tries! The correct hex code was: {secret_choice}. Game over!")
-
-
-
+        tries = 0
+        
+        # Check choice
+        while tries < 6:
+            # Grab player guess and compare with secret
+            outcome = ""
+            correct = 0
+            while True:
+                player_guess = input('Please input your hex code guess: ')
+        
+                if len(player_guess) == 6:
+                    break
+        
+                print('Your hex code guess must have 6 characters. Try again...')
+        
+            for i in range(len(player_guess)):
+                # match - green
+                if player_guess[i] == secret_choice[i]:
+                    outcome += f"\033[32m{player_guess[i]}\033[0m"
+                    correct += 1
+                elif player_guess[i] in secret_choice:
+                    outcome += f"\033[33m{player_guess[i]}\033[0m"
+                else:
+                    outcome += f"{player_guess[i]}"
+            print(outcome)
+            tries += 1
+            if correct == 6:
+                print(f"You got the correct hex code in {tries} tries!")
+                break
+        
+        if tries == 6:
+            print(f"You did not get the correct hex code in 6 tries! The correct hex code was: {secret_choice}. Game over!")
+        
+       
+        
