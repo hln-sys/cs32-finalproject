@@ -17,7 +17,7 @@ import random
 from PIL import Image
 from socket32 import create_new_socket
 
-def generate_mystery_color()
+def generate_mystery_color():
 ''' Generates a mystery color and returns its information in a dictionary structured as 
     {"Name" (str): color_name,
      "Hex" (str): hex_value,
