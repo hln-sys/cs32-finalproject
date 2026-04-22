@@ -4,6 +4,7 @@ of the image that has been displayed
 
 The client has 6 guess chances '''
 
+
 # Create a connection to the server
 from socket32 import create_new_socket
 
@@ -14,7 +15,7 @@ PORT = 65489
 def main():
 
 
-    print('## Welcome to the HEXWORDLE ! ##')
+    print('## Welcome to the HEXCODLE ! ##')
 
     #create socket and connect
     with create_new_socket() as s:
