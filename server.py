@@ -6,7 +6,7 @@ so that they view it and make their guess.
 '''
 
 ''' This script uses socket32.py, which is a shim that was created by the CS32 team at Harvard.
-It also uses the HUED library, which has many color-related functions. 
+It also uses the HUED library, which has many color-related functions.
 
 '''
 
@@ -18,7 +18,7 @@ from PIL import Image
 from socket32 import create_new_socket
 
 def generate_mystery_color():
-    
+
      # Initialize the color manager object and the big list of colors
      color_master = ColorManager()
 
@@ -38,7 +38,7 @@ def generate_mystery_color():
 
      # return this information, all enclosed in a dictionary
      return mystery_color_info
-     
+
 
 # Create a connection
 HOST = '127.0.0.1'
@@ -58,7 +58,7 @@ def main():
 
         with conn2client:
             # Generate the random color, its image, its rgb value, and its hex value
-            mystery_color = generate_random_color()
+            mystery_color = generate_mystery_color()
 
             # procure the hex_mystery value from the dictionary
             hex_mystery = mystery_color['Hex']
@@ -69,13 +69,13 @@ def main():
             # Generate the image from the rgb values returned
             sz = (100, 100)
             hex_image = Image.new('RGB', sz)
-             
+
             # Create direct access to the pixels in the image
-            pixels = hex_image.load() 
-            
-            # Set the color of each pixel 
-            for x in range(size[0]):
-               for y in range(size[1]):
+            pixels = hex_image.load()
+
+            # Set the color of each pixel
+            for x in range(sz[0]):
+               for y in range(sz[1]):
                   pixels[x,y] = rgb_mystery    # assign each pixel to the value of the mystery color
 
             # show the image to the player
