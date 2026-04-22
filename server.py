@@ -18,11 +18,7 @@ from PIL import Image
 from socket32 import create_new_socket
 
 def generate_mystery_color():
-''' Generates a mystery color and returns its information in a dictionary structured as 
-    {"Name" (str): color_name,
-     "Hex" (str): hex_value,
-     'RGB' (tuple): (r_value, g_value, b_value)}
-'''
+    
      # Initialize the color manager object and the big list of colors
      color_master = ColorManager()
 
