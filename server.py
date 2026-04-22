@@ -11,7 +11,6 @@ It also uses the HUED library, which has many color-related functions.
 '''
 
 # Import the library that contains the colors and their hex values
-import hued
 from hued.conversions import hex_to_rgb, rgb_to_hex
 from hued.colors import ColorManager
 import random
