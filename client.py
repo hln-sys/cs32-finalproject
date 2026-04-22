@@ -30,23 +30,24 @@ def main():
 
 secret_choice = s.recv()
 
-# Grab player guess and compare with secret
-
-while True:
-    player_guess = input('Please input your hex code guess: ')
-
-    if len(client_guess) == 6:
-        break
-    
-    print('Your hex code guess must have 6 characters. Try again...')
 
 
+outcome = ""
+correct = 0
+tries = 0
 
 # Check choice
 while tries < 6:
-    outcome = ""
-    correct = 0
-    tries = 0
+    # Grab player guess and compare with secret
+    
+    while True:
+        player_guess = input('Please input your hex code guess: ')
+    
+        if len(client_guess) == 6:
+            break
+        
+        print('Your hex code guess must have 6 characters. Try again...')
+        
     for i in range(len(player_guess)):
         # match - green
         if player_guess[i] == secret_choice[i]:
@@ -56,8 +57,8 @@ while tries < 6:
             outcome += f"\033[33m{player_guess[i]}\033[0m"
         else:
             outcome += f"{player_guess[i]}"
-        tries += 1
     print(outcome)
+    tries += 1
     if correct == 6:
         print(f"You got the correct hex code in {tries}!")
         break
