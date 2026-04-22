@@ -74,8 +74,8 @@ def main():
             pixels = hex_image.load()
 
             # Set the color of each pixel
-            for x in range(sz[0]):
-               for y in range(sz[1]):
+            for x in range(hex_image.size[0]):
+               for y in range(hex_image.size[1]):
                   pixels[x,y] = rgb_mystery    # assign each pixel to the value of the mystery color
 
             # show the image to the player
