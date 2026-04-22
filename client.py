@@ -30,24 +30,27 @@ def main():
         s.connect(HOST, PORT)
 
         # Grab the server choice:
-        
+
         secret_choice = s.recv()
-        
+
         tries = 0
-        
+
         # Check choice
         while tries < 6:
             # Grab player guess and compare with secret
             outcome = ""
+
             correct = 0
+
             while True:
+
                 player_guess = input('Please input your hex code guess: ')
-        
+
                 if len(player_guess) == 6:
                     break
-        
+
                 print('Your hex code guess must have 6 characters. Try again...')
-        
+
             for i in range(len(player_guess)):
                 # match - green
                 if player_guess[i] == secret_choice[i]:
@@ -62,9 +65,9 @@ def main():
             if correct == 6:
                 print(f"You got the correct hex code in {tries} tries!")
                 break
-        
+
         if tries == 6:
             print(f"You did not get the correct hex code in 6 tries! The correct hex code was: {secret_choice}. Game over!")
-        
-       
-        
+
+
+
