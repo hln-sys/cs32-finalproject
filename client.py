@@ -35,6 +35,6 @@ def main():
         s.sendall(client_guess)
 
 
-        'the image' = s.recv()
+        'the hex_code' = s.recv()
 
 
