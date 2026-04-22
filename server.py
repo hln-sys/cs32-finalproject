@@ -6,7 +6,7 @@ so that they view it and make their guess.
 '''
 
 # Import the library that contains the colors and their hex values
-import Hued
+import hued
 from PIL import Image
 
 
@@ -53,9 +53,9 @@ def main():
                 if client_guess == '':
                     break
 
-                # send the image to the client so they can open it
+                # send the hex mystery code to the smart client so they can carry out the checks
                 else:
-                    conn2client.sendall ('the image')
+                    conn2client.sendall (hex_mystery)
             print('Disconnected')
 
 
