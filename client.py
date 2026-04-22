@@ -25,20 +25,45 @@ def main():
     with create_new_socket() as s:
         s.connect(HOST, PORT)
 
-   # Grab the client's guess
 
-        while True:
-            client_guess = input('please input your hex guess: ')
+# Grab the server choice:
 
-            if len(client_guess) < 6:
-                print('Hex guess must have 6 characters. Try again...')
+secret_choice = s.recv()
 
-            else:
-                break
+# Grab player guess and compare with secret
 
-        s.sendall(client_guess)
+while True:
+    player_guess = input('Please input your hex code guess: ')
+
+    if len(client_guess) == 6:
+        break
+    
+    print('Your hex code guess must have 6 characters. Try again...')
 
 
-        'the hex_code' = s.recv()
+
+# Check choice
+while tries < 6:
+    outcome = ""
+    correct = 0
+    tries = 0
+    for i in range(len(player_guess)):
+        # match - green
+        if player_guess[i] == secret_choice[i]:
+            outcome += f"\033[32m{player_guess[i]}\033[0m" 
+            correct += 1
+        elif player_guess[i] in secret_choice:
+            outcome += f"\033[33m{player_guess[i]}\033[0m"
+        else:
+            outcome += f"{player_guess[i]}"
+        tries += 1
+    print(outcome)
+    if correct == 6:
+        print(f"You got the correct hex code in {tries}!")
+        break
+
+if tries == 6:
+    print(f"You did not get the correct hex code in 6 tries! The correct hex code was: {secret_choice}. Game over!")
+
 
 
