@@ -45,7 +45,7 @@ def main():
                   pixels[x,y] = (r, g, b)
 
 
-           im.save('images/out.png')
+            hex_image.save('images/out.png')
 
 
             while True:   # message processing loop that checks for the guesses received
