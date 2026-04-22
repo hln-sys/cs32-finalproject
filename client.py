@@ -4,6 +4,10 @@ of the image that has been displayed
 
 The client has 6 guess chances '''
 
+# NOTE: 1. Before beginning the game, Run 'Pip install hued' to download the hued library needed for the game
+#       2. To make the guess once the game starts, you will be asked to check for an image in your files. The name of the file is 'out.png'
+#          which will be created by the computer. Open it to see the image of the color whose hex value you have to guess.
+#          This image changes everytime you have to make a new guess.
 
 # Create a connection to the server
 from socket32 import create_new_socket
