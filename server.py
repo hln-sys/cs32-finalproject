@@ -6,7 +6,8 @@ so that they view it and make their guess.
 '''
 
 # Import the library that contains the colors and their hex values
-import HUED
+import Hued
+from PIL import Image
 
 
 # Create a connection
@@ -31,7 +32,20 @@ def main():
             # Generate the random color, it's image and it's hex value
 
 
-            # Save the image generated in a file
+            # Generate the image from the rgb values returned
+            sz = (100, 100)
+            hex_image = Image.new('RGB', sz)
+             
+            # Create direct access to the pixels in the image
+            pixels = hex_image.load() 
+             
+            # Set the color of each pixel 
+            for x in range(size[0]):
+               for y in range(size[1]):
+                  pixels[x,y] = (r, g, b)
+
+
+           im.save('images/out.png')
 
 
             while True:   # message processing loop that checks for the guesses received
