@@ -79,7 +79,7 @@ def main():
                   pixels[x,y] = rgb_mystery    # assign each pixel to the value of the mystery color
 
             # show the image to the player
-            hex_image.save('images/out.png')
+            hex_image.save('out.png')
 
             while True:   # message processing loop that checks for the guesses received
                 client_guess = conn2client.recv()
