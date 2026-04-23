@@ -39,6 +39,8 @@ def generate_mystery_color():
      # return this information, all enclosed in a dictionary
      return mystery_color_info
 
+def generate
+
 
 # Create a connection
 HOST = '127.0.0.1'
@@ -70,13 +72,10 @@ def main():
             sz = (100, 100)
             hex_image = Image.new('RGB', sz)
 
-            # Create direct access to the pixels in the image
-            pixels = hex_image.load()
-
             # Set the color of each pixel
             for x in range(hex_image.size[0]):
                for y in range(hex_image.size[1]):
-                  pixels[x,y] = rgb_mystery    # assign each pixel to the value of the mystery color
+                  hex_image.putpixel((x,y), rgb_mystery)    # assign each pixel to the value of the mystery color
 
             # show the image to the player
             hex_image.save('out.png')
