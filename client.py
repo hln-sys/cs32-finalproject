@@ -27,6 +27,7 @@ def main():
 
     #create socket and connect
     with create_new_socket() as s:
+
         s.connect(HOST, PORT)
 
         # Grab the server choice:
@@ -69,5 +70,5 @@ def main():
         if tries == 6:
             print(f"You did not get the correct hex code in 6 tries! The correct hex code was: {secret_choice}. Game over!")
 
-
-
+if __name__ == '__main__':
+    main()
