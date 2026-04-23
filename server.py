@@ -78,17 +78,17 @@ def main():
             # show the image to the player
             hex_image.save('out.png')
 
+             # send the hex mystery code to the smart client so they can carry out the checks
+            conn2client.sendall(hex_mystery)
+
             while True:   # message processing loop that checks for the guesses received
                 client_guess = conn2client.recv()
+                conn2client.sendall(hex_mystery)
                 if client_guess == '':
                     break
 
-                # send the hex mystery code to the smart client so they can carry out the checks
-                else:
-                    conn2client.sendall (hex_mystery)
             print('Disconnected')
 
 
 if __name__ == '__main__':
     main()
-
