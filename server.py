@@ -39,8 +39,6 @@ def generate_mystery_color():
      # return this information, all enclosed in a dictionary
      return mystery_color_info
 
-def generate
-
 
 # Create a connection
 HOST = '127.0.0.1'
