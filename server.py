@@ -79,7 +79,7 @@ def main():
             hex_image.save('out.png')
 
              # send the hex mystery code to the smart client so they can carry out the checks
-            conn2client.sendall(hex_mystery)
+            conn2client.sendall(hex_mystery.lower().strip('#'))
 
             while True:   # message processing loop that checks for the guesses received
                 client_guess = conn2client.recv()

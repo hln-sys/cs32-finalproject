@@ -45,7 +45,7 @@ def main():
 
             while True:
 
-                player_guess = input('Please input your hex code guess: ')
+                player_guess = input('Please input your hex code guess: ').lower()
 
                 if len(player_guess) == 6:
                     break
