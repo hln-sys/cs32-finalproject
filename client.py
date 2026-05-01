@@ -69,7 +69,7 @@ def main():
                 print(f"You got the correct hex code in {tries} tries!")
                 break
 
-        if tries == 6:
+        if tries > 6:
             print(f"You did not get the correct hex code in 6 tries! The correct hex code was: #{secret_choice}. Game over!")
 
 if __name__ == '__main__':
