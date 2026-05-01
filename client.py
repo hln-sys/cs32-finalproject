@@ -45,7 +45,7 @@ def main():
 
             while True:
 
-                player_guess = input('Please input your hex code guess: ').lower()
+                player_guess = input('Please input your hex code guess: ').upper()
 
                 if len(player_guess) == 6:
                     break
@@ -63,14 +63,14 @@ def main():
                 # wrong character - grey
                 else:
                     outcome += f"\033[90m{player_guess[i]}\033[0m"
-            print(outcome)
+            print("#" + outcome)
             tries += 1
             if correct == 6:
                 print(f"You got the correct hex code in {tries} tries!")
                 break
 
         if tries == 6:
-            print(f"You did not get the correct hex code in 6 tries! The correct hex code was: {secret_choice}. Game over!")
+            print(f"You did not get the correct hex code in 6 tries! The correct hex code was: #{secret_choice}. Game over!")
 
 if __name__ == '__main__':
     main()
