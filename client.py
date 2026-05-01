@@ -60,7 +60,7 @@ def main():
                 elif player_guess[i] in secret_choice:
                     outcome += f"\033[33m{player_guess[i]}\033[0m"
                 else:
-                    outcome += f"{player_guess[i]}"
+                    outcome += f"\033[90m{player_guess[i]}\033[0m"
             print(outcome)
             tries += 1
             if correct == 6:
