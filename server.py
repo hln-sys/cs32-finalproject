@@ -42,7 +42,7 @@ def generate_mystery_color():
 
 # Create a connection
 HOST = '127.0.0.1'
-PORT = 65489
+PORT = 65480
 
 
 def main():
