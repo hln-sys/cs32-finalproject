@@ -57,8 +57,10 @@ def main():
                 if player_guess[i] == secret_choice[i]:
                     outcome += f"\033[32m{player_guess[i]}\033[0m"
                     correct += 1
+                # wrong spot - yellow
                 elif player_guess[i] in secret_choice:
                     outcome += f"\033[33m{player_guess[i]}\033[0m"
+                # wrong character - grey
                 else:
                     outcome += f"\033[90m{player_guess[i]}\033[0m"
             print(outcome)
