@@ -83,10 +83,14 @@ def show_color_slider():
 
     while True:
 
+        # Process Pygame events for user interactions
         for event in pygame.event.get():
+
             if event.type == pygame.QUIT:
                 pygame.quit()
                 return None
+            
+            # Handle mouse clicks: set slider values or confirm selection
             if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
                 if hue_rect.collidepoint(event.pos):
                     hue = (event.pos[0] - hue_rect.left) / hue_rect.width
@@ -98,7 +102,9 @@ def show_color_slider():
                     rgb = hsv_to_rgb(hue * 360.0, saturation, value)
                     pygame.quit()
                     return rgb_to_hex(*rgb).lstrip('#').upper()
+                
             if event.type == pygame.MOUSEMOTION and event.buttons[0]:
+                # Handle dragging: update the slider values based on mouse position
                 if hue_rect.collidepoint(event.pos):
                     hue = (event.pos[0] - hue_rect.left) / hue_rect.width
                 elif sat_rect.collidepoint(event.pos):
@@ -106,6 +112,7 @@ def show_color_slider():
                 elif val_rect.collidepoint(event.pos):
                     value = (event.pos[0] - val_rect.left) / val_rect.width
         
+        # Clamp values to ensure they stay within 0.0 to 1.0 range
         hue = max(0.0, min(1.0, hue))
         saturation = max(0.0, min(1.0, saturation))
         value = max(0.0, min(1.0, value))
@@ -116,6 +123,7 @@ def show_color_slider():
             "Then click Confirm to save the selected color."
         ], font, (0, 0, 0), 20, 20)
 
+        # Draw the hue slider: a gradient from red to violet (0-360 degrees hue)
         for x in range(hue_rect.width):
             color = hsv_to_rgb((x / hue_rect.width) * 360.0, 1, 1)
             pygame.draw.line(screen, color, (hue_rect.left + x, hue_rect.top), (hue_rect.left + x, hue_rect.bottom))
@@ -123,6 +131,7 @@ def show_color_slider():
         pygame.draw.circle(screen, (0, 0, 0), (hue_rect.left + int(hue * hue_rect.width), hue_rect.centery), 8, 2)
         screen.blit(font.render("Hue", True, (0, 0, 0)), (hue_rect.left, hue_rect.top - 25))
 
+        # Draw the saturation slider: varies saturation from 0 to 1 at current hue and value
         for x in range(sat_rect.width):
             color = hsv_to_rgb(hue * 360.0, x / sat_rect.width, value)
             pygame.draw.line(screen, color, (sat_rect.left + x, sat_rect.top), (sat_rect.left + x, sat_rect.bottom))
@@ -130,6 +139,7 @@ def show_color_slider():
         pygame.draw.circle(screen, (0, 0, 0), (sat_rect.left + int(saturation * sat_rect.width), sat_rect.centery), 8, 2)
         screen.blit(font.render("Saturation", True, (0, 0, 0)), (sat_rect.left, sat_rect.top - 25))
 
+        # Draw the value slider: varies brightness from 0 to 1 at current hue and saturation
         for x in range(val_rect.width):
             color = hsv_to_rgb(hue * 360.0, saturation, x / val_rect.width)
             pygame.draw.line(screen, color, (val_rect.left + x, val_rect.top), (val_rect.left + x, val_rect.bottom))
@@ -206,16 +216,17 @@ def main():
 
             for i in range(len(player_guess)):
 
-                # match - green
+                # Check each character in the guess against the secret hex code
+                # Green: character is correct and in the right position
                 if player_guess[i] == secret_choice[i]:
                     outcome += f"\033[32m{player_guess[i]}\033[0m"
                     correct += 1
 
-                # wrong spot - yellow
+                # Yellow: character is in the hex code but wrong position
                 elif player_guess[i] in secret_choice:
                     outcome += f"\033[33m{player_guess[i]}\033[0m"
 
-                # wrong character - grey
+                # Grey: character is not in the hex code at all
                 else:
                     outcome += f"\033[90m{player_guess[i]}\033[0m"
 
@@ -243,6 +254,7 @@ def main():
                     else:
                         correct_rgb = hex_to_rgb(secret_choice)  # convert the secret hex code to RGB using Hued
                         guessed_rgb = hex_to_rgb(clicked_hex)  # convert the clicked hex code to RGB using Hued
+                        # Calculate Euclidean distance in RGB space to measure color difference
                         distance = math.sqrt(sum((a - b) ** 2 for a, b in zip(correct_rgb, guessed_rgb)))  # compute Euclidean distance between the two colors
                         message_text = f"You lost the bonus round. Your Euclidean distance from the correct color is {distance:.2f}."
 
