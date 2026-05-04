@@ -12,9 +12,9 @@ In your terminal, run the following commands (without the quotation marks)
 * ‘pip install hued’
 * ‘pip install pillow’
 * ‘pip install pygame’
-When you play, split your terminal.
-In the first terminal, run server.py.
-In the second terminal, run client.py.
+* When you play, split your terminal.
+ * In the first terminal, run server.py.
+ * In the second terminal, run client.py.
 
 **How our game works:**
 On a broad level, it uses the smart client-dumb server format that we used in the Roshambo PSET to create and check hex code guesses that the client makes by using the ColorManager object and its conversion functions in the hued python library. The client also allows for a pop-up using the pygame library. 
