@@ -167,7 +167,7 @@ def show_color_slider():
         selected_rgb = hsv_to_rgb(hue, saturation, value)
         pygame.draw.rect(screen, selected_rgb, preview_rect)
         pygame.draw.rect(screen, (0, 0, 0), preview_rect, 2)
-        
+
         pygame.draw.rect(screen, (40, 167, 69), confirm_rect)
         pygame.draw.rect(screen, (0, 0, 0), confirm_rect, 2)
         screen.blit(font.render("Confirm", True, (255, 255, 255)), (confirm_rect.left + 18, confirm_rect.top + 10))
